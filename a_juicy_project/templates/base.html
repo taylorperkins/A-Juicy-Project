@@ -1,12 +1,20 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - Juicy</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-<nav>
-  <h1>The Juiciest Project</h1>
-</nav>
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% block content %}{% endblock %}
-</section>
+<html lang="en">
+
+<head>
+{% block head %}
+    {% include 'head.html' %}
+{% endblock %}
+</head>
+
+<body>
+{% block content %}
+    {% include 'index/index.html' %}
+{% endblock %}
+</body>
+
+{% block scripts %}
+    {% include 'scripts.html' %}
+{% endblock %}
+
+</html>

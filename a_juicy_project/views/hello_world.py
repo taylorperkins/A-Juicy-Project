@@ -5,4 +5,4 @@ from a_juicy_project import app
 
 @app.route('/hello_world/<name>')
 def hello_world(name):
-    return render_template('hello_world.html', name=name)
+    return render_template('index/index.html', name=name)

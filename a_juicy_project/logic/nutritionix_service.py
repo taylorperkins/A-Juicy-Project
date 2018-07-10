@@ -38,8 +38,6 @@ class NutritionIxService(object):
             api_key=self._api_key
         )
 
-        print url
-
         headers = {'Content-Type': 'application/xml'}
 
         return url, headers

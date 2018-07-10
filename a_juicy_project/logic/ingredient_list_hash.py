@@ -1,7 +1,7 @@
 import re
 
 
-def update_ingredients_list(ing_list, ingredients, product_id):
+def update_ingredients_list(ingredients, ingredients_map):
     # we want to remove periods
     if ingredients[-1] == '.':
         ingredients = ingredients[:-1]
@@ -14,16 +14,23 @@ def update_ingredients_list(ing_list, ingredients, product_id):
     index = 0
     small_print = ''
 
+    product_list = list()
+
     while True:
         ing_len = len(ingredients)
 
         if index == ing_len or ingredients[index] == ',':
             ingredient = ingredients[:index].strip().lower()
-            ing_list[ingredient][product_id] = small_print
+
+            if ingredient not in ingredients_map:
+                ingredients_map[ingredient] = len(ingredients_map)
+
+            # We'll keep a hash of the ingredients to send back to the client for appropriate events.
+            product_list.append((ingredients_map[ingredient], small_print))
 
             # break out of the loop here
             if index == ing_len:
-                return
+                return product_list
 
             small_print = ''
 

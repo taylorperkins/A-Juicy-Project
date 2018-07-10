@@ -8,14 +8,10 @@
 </head>
 
 <body>
-    {% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
-
     <div class="main-panel">
         {% include 'navbar.html' %}
 
         {% block content %}{% include 'index/index.html' %}{% endblock %}
-
-        {% include 'footer.html' %}
     </div>
 </body>
 

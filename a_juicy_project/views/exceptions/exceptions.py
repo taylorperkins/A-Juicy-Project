@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, redirect
 
 from a_juicy_project import app
 
@@ -10,3 +10,8 @@ def handle_nutritionix_service_error(error):
     response = jsonify(error.to_dict())
     response.status_code = error.status_code
     return response
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return redirect('/ingredients'), 404

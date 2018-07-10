@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Hello World{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Products</h4>
+                        <p class="category">Currently Selected: <span id="product-selection">All</span></p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                {% for name in col_names %}
+                                    <th>{{ name }}</th>
+                                {% endfor %}
+                            </thead>
+                            <tbody>
+                                {% for product in product_ingredient_map %}
+                                    <tr class="product {{ convert_ingredients_to_class(product['product_ingredient_list']) }}">
+                                        {% for cell in product['row'] %}
+                                            <td>{{ cell }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

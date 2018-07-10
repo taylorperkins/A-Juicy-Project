@@ -1,7 +1,8 @@
 import json
+
 import requests
 
-from a_juicy_project.exceptions.base_api_exception import BaseAPIException
+from a_juicy_project.base_api_exception import BaseAPIException
 
 
 class NutritionIxServiceError(BaseAPIException):

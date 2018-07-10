@@ -14,4 +14,4 @@ def handle_nutritionix_service_error(error):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return redirect('/ingredients'), 404
+    return redirect('/'), 404

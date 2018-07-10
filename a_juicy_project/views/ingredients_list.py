@@ -1,4 +1,3 @@
-from collections import defaultdict
 from copy import deepcopy
 
 from flask import render_template
@@ -15,7 +14,7 @@ def utility_processor():
     return dict(convert_ingredients_to_class=convert_ingredients_to_class)
 
 
-@app.route('/ingredients', methods=['GET'])
+@app.route('/', methods=['GET'])
 def ingredient_list():
     products = nutritionix_service.get_products()
 
